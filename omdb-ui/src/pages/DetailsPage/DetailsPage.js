@@ -4,12 +4,11 @@ import axios from 'axios';
 
 import Card from '../../components/Card/Card';
 import List from '../../components/List/List';
-import Search from '../../components/Search/Search';
 
 import { baseUrl, axiosHeaders } from '../../utils/constants';
 
 export default function DetailsPage() {
-    const [searchTerm, setSearchTerm] = useState('');
+    //const [searchTerm, setSearchTerm] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const params = useParams();
     const imdbID = params.imdbID;
@@ -25,17 +24,17 @@ export default function DetailsPage() {
         }
       }
     
-    const onSubmit = (searchTerm) => {
+    var url;
+
+    const onSubmit = (imdbID) => {
     const uri = `http://localhost:3001/omdb/imdb/${imdbID}`;
 
-    console.log(uri);
+    url = uri;
 
     axios.get(uri, axiosHeaders)
         .then(res => onSubmitSuccess(res))
         .catch(err => console.error(err));
     }
-
-    console.log("Hello World");
 
     return (
       <div>
@@ -45,6 +44,10 @@ export default function DetailsPage() {
 
         <h3> Wubba Lubba Dub Dub </h3>
         <p> But this is the iMDb ID if it helps : {imdbID}</p>
+
+        <p> I want to fetch info from here: {url} </p>
+
+        {<a href={url}> Click Me </a>}
       </div>
     )
 }
