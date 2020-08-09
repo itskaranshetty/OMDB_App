@@ -22,6 +22,9 @@ router.get('/', function (req, res, next) {
 router.get('/search', (req, res, next) => {
   const title = req.query.title
   const url = `${OMDB_URL}?apikey=${OMDB_API_KEY}&s=${title}`
+
+  //console.log(url);
+
   axios.get(url)
     .then(response => {
       res.send(response.data);
