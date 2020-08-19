@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # OMDB
 Movie Database Search
 =======
