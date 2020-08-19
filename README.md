@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+# OMDB
+Movie Database Search
+=======
 # Demux, OMDB application:
 
 
